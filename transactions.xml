@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <transactions>
-                                                                                                                                                                
+                                                                                                                                                                        
     
     
     
@@ -118,8 +118,12 @@
     
     
     
+    
+    
     <transaction id="2" type="income">
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -132,7 +136,9 @@
         
         
         <date>2025-07-08</date>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -145,7 +151,9 @@
         
         
         <category>Đầu tư</category>
-                                                                                                        
+                                                                                                                        
+        
+        
         
         
         
@@ -158,7 +166,7 @@
         
         
         <description>Chứng khoán</description>
-                                                                                                        
+                                                                                                                        
         
         
         
@@ -170,8 +178,12 @@
         
         
         
-        <amount>5.0E8</amount>
-                                                                                                    
+        
+        
+        <amount>5.0E7</amount>
+                                                                                                                    
+    
+    
     
     
     
@@ -184,12 +196,14 @@
     
     
     </transaction>
-                                                
+                                                        
     
     
     
 
 
+    
+    
     
     
     
@@ -199,6 +213,75 @@
     
     
     <transaction id="3" type="income">
+                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <date>2025-07-09</date>
+                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <category>Lương</category>
+                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <description>tháng 7</description>
+                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <amount>7.0E7</amount>
+                                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </transaction>
+                                        
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    <transaction id="5" type="expense">
                                                                         
         
         
@@ -216,7 +299,7 @@
         
         
         
-        <category>Lương</category>
+        <category>Hóa đơn</category>
                                                                         
         
         
@@ -225,7 +308,7 @@
         
         
         
-        <description>tháng 7</description>
+        <description>Vinhome Riverside</description>
                                                                         
         
         
@@ -234,7 +317,7 @@
         
         
         
-        <amount>7.0E7</amount>
+        <amount>4000000.0</amount>
                                                                     
     
     
@@ -248,56 +331,11 @@
     
     
     
-        
-    
-    
-    
-    
-    
-    
-    <transaction id="5" type="expense">
-                                                        
-        
-        
-        
-        
-        
-        <date>2025-07-09</date>
-                                                        
-        
-        
-        
-        
-        
-        <category>Mua nhà</category>
-                                                        
-        
-        
-        
-        
-        
-        <description>Vinhome Riverside</description>
-                                                        
-        
-        
-        
-        
-        
-        <amount>4.0E10</amount>
-                                                    
-    
-    
-    
-    
-    
-    </transaction>
-                        
-    
-    
-    
 
 
     
+
+
 
 
 </transactions>

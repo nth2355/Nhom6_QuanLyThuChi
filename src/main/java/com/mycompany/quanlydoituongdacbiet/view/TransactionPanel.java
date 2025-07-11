@@ -34,58 +34,69 @@ public class TransactionPanel extends JPanel {
     private final JButton btnClear = new JButton("Làm mới");
     private final JTable table = new JTable();
     private DefaultTableModel tableModel;
-
+    private BudgetPanel budgetPanel; 
 
     private JLabel lblTotalIncome;
     private JLabel lblTotalExpense;
     private JLabel lblBalance;
-
+    
     private JPanel topPanel;
     private JScrollPane tableScrollPane;
     
+    //--- Các biến trạng thái ---
     private Transaction currentEditingTransaction = null;
     private List<Transaction> currentTransactions;
 
-    public TransactionPanel() {
-        setLayout(new BorderLayout(0, 10));
-        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        setupTopPanel();
-        setupTablePanel();
+public TransactionPanel() {
+    // --- BƯỚC 1: Đảm bảo layout chính là BorderLayout ---
+    setLayout(new BorderLayout(0, 10));
+    setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        JPanel formWrapperPanel = new JPanel(new BorderLayout());
-        formWrapperPanel.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createEtchedBorder(), "Thao tác", TitledBorder.LEFT, TitledBorder.TOP, Theme.BOLD_FONT, Theme.TEXT_COLOR
-        ));
-        formWrapperPanel.add(topPanel, BorderLayout.CENTER);
+    // Gọi các hàm helper để khởi tạo component
+    setupTopPanel();
+    setupTablePanel();
 
-        JPanel tableWrapperPanel = new JPanel(new BorderLayout());
-        tableWrapperPanel.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createEtchedBorder(), "Danh sách giao dịch", TitledBorder.LEFT, TitledBorder.TOP, Theme.BOLD_FONT, Theme.TEXT_COLOR
-        ));
-        tableWrapperPanel.add(tableScrollPane, BorderLayout.CENTER);
+    // KHU VỰC 1: FORM NHẬP LIỆU
+    JPanel formWrapperPanel = new JPanel(new BorderLayout());
+    formWrapperPanel.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createEtchedBorder(), "Thao tác", TitledBorder.LEFT, TitledBorder.TOP, Theme.BOLD_FONT, Theme.TEXT_COLOR
+    ));
+    formWrapperPanel.add(topPanel, BorderLayout.CENTER);
 
-        JPanel summaryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 20, 5));
-        lblTotalIncome = new JLabel("Tổng thu: 0");
-        lblTotalExpense = new JLabel("Tổng chi: 0");
-        lblBalance = new JLabel("Số dư: 0");
+    // KHU VỰC 2: BẢNG DỮ LIỆU
+    JPanel tableWrapperPanel = new JPanel(new BorderLayout());
+    tableWrapperPanel.setBorder(BorderFactory.createTitledBorder(
+            BorderFactory.createEtchedBorder(), "Danh sách giao dịch", TitledBorder.LEFT, TitledBorder.TOP, Theme.BOLD_FONT, Theme.TEXT_COLOR
+    ));
+    tableWrapperPanel.add(tableScrollPane, BorderLayout.CENTER);
 
-        lblTotalIncome.setFont(Theme.BOLD_FONT);
-        lblTotalExpense.setFont(Theme.BOLD_FONT);
-        lblBalance.setFont(Theme.BOLD_FONT);
-        
-        summaryPanel.add(lblTotalIncome);
-        summaryPanel.add(lblTotalExpense);
-        summaryPanel.add(lblBalance);
-        
-        tableWrapperPanel.add(summaryPanel, BorderLayout.SOUTH);
+    // Panel chứa các thông tin tổng kết
+    JPanel summaryPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 20, 5));
+    lblTotalIncome = new JLabel("Tổng thu: 0");
+    lblTotalExpense = new JLabel("Tổng chi: 0");
+    lblBalance = new JLabel("Số dư: 0");
 
-        add(formWrapperPanel, BorderLayout.NORTH);
-        add(tableWrapperPanel, BorderLayout.CENTER);
+    lblTotalIncome.setFont(Theme.BOLD_FONT);
+    lblTotalExpense.setFont(Theme.BOLD_FONT);
+    lblBalance.setFont(Theme.BOLD_FONT);
+    
+    summaryPanel.add(lblTotalIncome);
+    summaryPanel.add(lblTotalExpense);
+    summaryPanel.add(lblBalance);
+    
+    tableWrapperPanel.add(summaryPanel, BorderLayout.SOUTH);
 
-        addListeners();
-        loadTableData();
-    }
+    // --- BƯỚC 2: Thêm các khu vực vào đúng vị trí ---
+    // Đặt form ở trên (NORTH)
+    add(formWrapperPanel, BorderLayout.NORTH);
+    // Đặt bảng ở giữa (CENTER), nó sẽ chiếm hết không gian còn lại
+    add(tableWrapperPanel, BorderLayout.CENTER);
+
+    // Gán sự kiện và tải dữ liệu
+    addListeners();
+    loadTableData();
+}
 
     private void setupTopPanel() {
         topPanel = new JPanel(new BorderLayout());
@@ -97,6 +108,7 @@ public class TransactionPanel extends JPanel {
 
         tabbedPane.addTab("Quản Lý Thu", Theme.getScaledIcon("/icons/income.png", 16, 16), incomeInputPanel);
         tabbedPane.addTab("Quản Lý Chi", Theme.getScaledIcon("/icons/expense.png", 16, 16), expenseInputPanel);
+        tabbedPane.addTab("Ngân Sách", Theme.getScaledIcon("/icons/budget.png", 16, 16), budgetPanel);
         tabbedPane.addTab("Tìm kiếm", Theme.getScaledIcon("/icons/search.png", 16, 16), searchPanel);
 
         topPanel.add(tabbedPane, BorderLayout.CENTER);
@@ -117,7 +129,7 @@ public class TransactionPanel extends JPanel {
         
         topPanel.add(buttonPanel, BorderLayout.SOUTH);
     }
-
+    
     private void setupTablePanel() {
         String[] columnNames = {"ID", "Ngày", "Loại", "Danh Mục", "Mô Tả", "Số Tiền"};
         
@@ -135,7 +147,6 @@ public class TransactionPanel extends JPanel {
             }
         };
         table.setModel(tableModel);
-
         table.setAutoCreateRowSorter(true);
         hideColumn(0);
         table.setRowHeight(30);
@@ -161,7 +172,7 @@ public class TransactionPanel extends JPanel {
     private void addListeners() {
         btnSave.addActionListener(e -> saveOrUpdateTransaction());
         btnClear.addActionListener(e -> clearFormAndState());
-        
+
         JPopupMenu popupMenu = new JPopupMenu();
         JMenuItem editItem = new JMenuItem("Sửa giao dịch", Theme.getScaledIcon("/icons/edit.png", 16, 16));
         JMenuItem deleteItem = new JMenuItem("Xóa giao dịch", Theme.getScaledIcon("/icons/delete.png", 16, 16));
@@ -187,8 +198,10 @@ public class TransactionPanel extends JPanel {
         });
 
         tabbedPane.addChangeListener(e -> {
-            boolean isEditTab = tabbedPane.getSelectedIndex() < 2;
+            int selectedIndex = tabbedPane.getSelectedIndex();
+            boolean isEditTab = selectedIndex == 0 || selectedIndex == 1;
             btnSave.setVisible(isEditTab);
+            
             if (isEditTab) {
                 clearFormAndState();
                 loadTableData();
@@ -369,28 +382,29 @@ public class TransactionPanel extends JPanel {
         column.setPreferredWidth(0);
         column.setResizable(false);
     }
-}
 
-class AmountRenderer extends DefaultTableCellRenderer {
-    private final DecimalFormat formatter = new DecimalFormat("#,##0");
+    // Lớp nội (inner class) để vẽ màu cho cột số tiền
+    private class AmountRenderer extends DefaultTableCellRenderer {
+        private final DecimalFormat formatter = new DecimalFormat("#,##0");
 
-    @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-        Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-        if (value instanceof Double) {
-            double amount = (double) value;
-            int modelRow = table.convertRowIndexToModel(row);
-            String transactionType = table.getModel().getValueAt(modelRow, 2).toString();
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            if (value instanceof Double) {
+                double amount = (double) value;
+                int modelRow = table.convertRowIndexToModel(row);
+                String transactionType = table.getModel().getValueAt(modelRow, 2).toString();
 
-            if (transactionType.equalsIgnoreCase("Thu nhập")) {
-                c.setForeground(new Color(0, 128, 0));
-                setText("+" + formatter.format(amount));
-            } else {
-                c.setForeground(Color.RED);
-                setText("-" + formatter.format(amount));
+                if (transactionType.equalsIgnoreCase("Thu nhập")) {
+                    c.setForeground(new Color(0, 128, 0));
+                    setText("+" + formatter.format(amount));
+                } else {
+                    c.setForeground(Color.RED);
+                    setText("-" + formatter.format(amount));
+                }
             }
+            setHorizontalAlignment(JLabel.RIGHT);
+            return c;
         }
-        setHorizontalAlignment(JLabel.RIGHT);
-        return c;
     }
 }
