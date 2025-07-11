@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<categories>
+    <category type="income">Lương</category>
+    <category type="income">Thưởng</category>
+    <category type="income">Bán hàng</category>
+    <category type="expense">Ăn uống</category>
+    <category type="expense">Di chuyển</category>
+    <category type="expense">Hóa đơn</category>
+    <category type="income">Đầu tư</category>
+    <category type="expense">Mua nhà</category>
+</categories>

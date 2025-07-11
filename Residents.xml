@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Residents>
+    <residents>
+        <address>TT Năm Căn, Năm Căn, Cà Mau</address>
+        <birthday>1965-05-11T16:04:50.211+07:00</birthday>
+        <id>1</id>
+        <name>Đỗ Nguyễn Hào</name>
+        <IDFamily>01253854</IDFamily>
+        <sex>Nam</sex>
+        <role>Chủ hộ</role>
+        <birthPlace>Ninh Bình</birthPlace>
+        <typeCMT>CCCD</typeCMT>
+        <CMT>096230254158</CMT>
+        <phoneNumber>0857677569</phoneNumber>
+    </residents>
+    <residents>
+        <address>TT Năm Căn, Năm Căn, Cà Mau</address>
+        <birthday>1968-05-14T23:10:29.037+07:00</birthday>
+        <id>2</id>
+        <name>Vũ Thị Thanh</name>
+        <IDFamily>01253854</IDFamily>
+        <sex>Nữ</sex>
+        <role>Vợ</role>
+        <birthPlace>Ninh Bình</birthPlace>
+        <typeCMT>CCCD</typeCMT>
+        <CMT>098653215478</CMT>
+        <phoneNumber>0989792069</phoneNumber>
+    </residents>
+    <residents>
+        <address>Phường 8, TP Cà Mau, Cà Mau</address>
+        <birthday>1988-03-16T23:11:39.947+07:00</birthday>
+        <id>3</id>
+        <name>Đỗ Nguyễn Hinh</name>
+        <IDFamily>01396548</IDFamily>
+        <sex>Nam</sex>
+        <role>Chủ hộ</role>
+        <birthPlace>Ninh Bình</birthPlace>
+        <typeCMT>CCCD</typeCMT>
+        <CMT>086956321585</CMT>
+        <phoneNumber>0916815916</phoneNumber>
+    </residents>
+    <residents>
+        <address>Phường 8, TP Cà Mau, Cà Mau</address>
+        <birthday>1992-05-14T00:00:00+07:00</birthday>
+        <id>4</id>
+        <name>Nguyễn Thị Huyền Trang</name>
+        <IDFamily>01396548</IDFamily>
+        <sex>Nữ</sex>
+        <role>Vợ</role>
+        <birthPlace>Cà Mau</birthPlace>
+        <typeCMT>CMND</typeCMT>
+        <CMT>381958745</CMT>
+        <phoneNumber>0839424215</phoneNumber>
+    </residents>
+    <residents>
+        <address>TT Năm Căn, Năm Căn, Cà Mau</address>
+        <birthday>1990-01-07T23:17:16.998+07:00</birthday>
+        <id>5</id>
+        <name>Đỗ Thị Tuyền</name>
+        <IDFamily>01253854</IDFamily>
+        <sex>Nữ</sex>
+        <role>Con</role>
+        <birthPlace>Ninh Bình</birthPlace>
+        <typeCMT>CCCD</typeCMT>
+        <CMT>098653212584</CMT>
+        <phoneNumber>0942769642</phoneNumber>
+    </residents>
+    <residents>
+        <address>Văn Quán, Hà Đông, Hà Nội</address>
+        <birthday>2002-03-18T00:00:00+07:00</birthday>
+        <id>6</id>
+        <name>Đỗ Nguyễn Trung Hiếu</name>
+        <IDFamily>01253854</IDFamily>
+        <sex>Nữ</sex>
+        <role>Con</role>
+        <birthPlace>Cà Mau</birthPlace>
+        <typeCMT>CMND</typeCMT>
+        <CMT>381982985</CMT>
+        <phoneNumber>0853789065</phoneNumber>
+    </residents>
+    <residents>
+        <address>Phường 8, TP Cà Mau, Cà Mau</address>
+        <birthday>2016-03-16T23:25:11.306+07:00</birthday>
+        <id>7</id>
+        <name>Đỗ Ngọc Hân</name>
+        <IDFamily>01396548</IDFamily>
+        <sex>Nữ</sex>
+        <role>Con</role>
+        <birthPlace>Cà Mau</birthPlace>
+        <typeCMT>Định danh</typeCMT>
+        <CMT>098653212548</CMT>
+        <phoneNumber></phoneNumber>
+    </residents>
+    <residents>
+        <address>TT Năm Căn, Năm Căn, Cà Mau</address>
+        <birthday>2020-05-07T23:26:26.859+07:00</birthday>
+        <id>8</id>
+        <name>Nguyễn Ngọc Ánh</name>
+        <IDFamily>01253854</IDFamily>
+        <sex>Nữ</sex>
+        <role>Người thân khác</role>
+        <birthPlace>Cà Mau</birthPlace>
+        <typeCMT>Định danh</typeCMT>
+        <CMT>092523658475</CMT>
+        <phoneNumber></phoneNumber>
+    </residents>
+</Residents>

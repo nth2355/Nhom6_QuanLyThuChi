@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<incomes>
+        
+    <income id="1">
+                
+        <date>2025-07-06</date>
+                
+        <category>Lương</category>
+                
+        <description>tháng 7</description>
+                
+        <amount>1.5E7</amount>
+            
+    </income>
+    
+    <income id="2">
+        <date>2025-07-07</date>
+        <category>Bán hàng</category>
+        <description>Kinh doanh</description>
+        <amount>1000000.0</amount>
+    </income>
+</incomes>
