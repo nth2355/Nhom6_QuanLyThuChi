@@ -223,5 +223,9 @@ public class TransactionController {
     }
     return filtered;
     }
+    
+    public static void addTransaction(Transaction t) {
+        saveTransaction(t);
+    }
 
 }

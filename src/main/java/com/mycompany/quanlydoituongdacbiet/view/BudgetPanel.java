@@ -121,7 +121,7 @@ public class BudgetPanel extends JPanel {
         }
     }
     
-    private void loadBudgetsToTable() {
+    public void loadBudgetsToTable() {
         tableModel.setRowCount(0);
         List<Budget> budgets = BudgetController.getAllBudgets();
         DecimalFormat formatter = new DecimalFormat("#,##0");
@@ -183,5 +183,9 @@ public class BudgetPanel extends JPanel {
             BudgetController.deleteBudget(budgetToDelete);
             loadBudgetsToTable();
         }
+    }
+    public void refreshData() {
+        loadExpenseCategories();
+        loadBudgetsToTable();
     }
 }

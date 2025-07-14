@@ -6,4 +6,10 @@
         <month>7</month>
         <year>2025</year>
     </budget>
+    <budget>
+        <category>Mua nhà</category>
+        <amount>5.0E9</amount>
+        <month>8</month>
+        <year>2025</year>
+    </budget>
 </budgets>
