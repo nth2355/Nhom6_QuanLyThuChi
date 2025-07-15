@@ -2,6 +2,7 @@ package com.mycompany.quanlydoituongdacbiet.view;
 
 import com.mycompany.quanlydoituongdacbiet.controller.TransactionController;
 import com.mycompany.quanlydoituongdacbiet.entity.Income;
+import com.mycompany.quanlydoituongdacbiet.utils.ButtonModeController;
 import com.mycompany.quanlydoituongdacbiet.utils.TableActionColumnUtils.*;
 import com.toedter.calendar.JDateChooser;
 
@@ -25,6 +26,11 @@ public class IncomeTabPanel extends JPanel {
     private JTextField tfAmount;
     private JTable table;
     private DefaultTableModel tableModel;
+    private JButton btnSave;
+    private JButton btnUpdate;
+    private JButton btnCancel;
+    private ButtonModeController buttonMode;
+
 
     // Danh mục có thể mở rộng
     private List<String> categoryList = new ArrayList<>();
