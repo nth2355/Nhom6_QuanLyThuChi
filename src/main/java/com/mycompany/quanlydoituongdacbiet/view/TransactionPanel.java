@@ -1,6 +1,7 @@
 package com.mycompany.quanlydoituongdacbiet.view;
 
-import com.mycompany.quanlydoituongdacbiet.controller.TransactionController;
+import com.mycompany.quanlydoituongdacbiet.entity.Income;
+import com.mycompany.quanlydoituongdacbiet.entity.Expense;
 import com.mycompany.quanlydoituongdacbiet.entity.Transaction;
 
 import javax.swing.*;
@@ -41,18 +42,10 @@ public class TransactionPanel extends JPanel {
         tabbedPane.addChangeListener(e -> {
             int index = tabbedPane.getSelectedIndex();
 
-            List<Transaction> all = TransactionController.getAllTransactions();
-
             if (index == 0) {
-                List<Transaction> incomeList = all.stream()
-                        .filter(t -> "Income".equalsIgnoreCase(t.getType()))
-                        .collect(Collectors.toList());
-                incomeTabPanel.loadTableData(incomeList);
+                incomeTabPanel.loadTableData();
             } else if (index == 1) {
-                List<Transaction> expenseList = all.stream()
-                        .filter(t -> "Expense".equalsIgnoreCase(t.getType()))
-                        .collect(Collectors.toList());
-                expenseTabPanel.loadTableData(expenseList);
+                expenseTabPanel.loadTableData();
             } else if (index == 2) {
                 searchPanel.loadAllTransactions();
             } else if (index == 3) {
@@ -62,20 +55,24 @@ public class TransactionPanel extends JPanel {
     }
 
     public void loadTableData(List<Transaction> list) {
-        List<Transaction> incomeList = list.stream()
-                .filter(t -> "Income".equalsIgnoreCase(t.getType()))
+        List<Income> incomeList = list.stream()
+                .filter(t -> t instanceof Income)
+                .map(t -> (Income) t)
                 .collect(Collectors.toList());
-        List<Transaction> expenseList = list.stream()
-                .filter(t -> "Expense".equalsIgnoreCase(t.getType()))
+
+        List<Expense> expenseList = list.stream()
+                .filter(t -> t instanceof Expense)
+                .map(t -> (Expense) t)
                 .collect(Collectors.toList());
 
         incomeTabPanel.loadTableData(incomeList);
         expenseTabPanel.loadTableData(expenseList);
     }
 
+
     public void reloadAllTabs() {
-        List<Transaction> all = TransactionController.getAllTransactions();
-        loadTableData(all);
+        incomeTabPanel.loadTableData();
+        expenseTabPanel.loadTableData();
         searchPanel.loadAllTransactions();
         budgetPanel.loadBudgetsToTable();
     }

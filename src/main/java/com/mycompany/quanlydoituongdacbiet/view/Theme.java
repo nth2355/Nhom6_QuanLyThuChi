@@ -15,6 +15,7 @@ public class Theme {
     public static final Color SELECTION_COLOR = Color.decode("#D0EFFF");
     public static final Color TABLE_HEADER_COLOR = Color.decode("#DEE2E6");
     public static final Color TEXT_COLOR = Color.decode("#495057");
+    public static final Color EXPENSE_BUTTON_COLOR = Color.decode("#F5A623");
 
     // --- THÊM MÀU MỚI CHO NÚT HÀNH ĐỘNG CHÍNH ---
     public static final Color ACTION_BUTTON_COLOR = Color.decode("#4CAF50"); // Xanh lá cây
